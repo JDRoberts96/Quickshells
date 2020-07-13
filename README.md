@@ -24,18 +24,26 @@ The current implementation is capable of generating reverse shell code for the f
 git clone https://JDRoberts96/Quickshells
 ```
 
-## Setup / Install
+## Setup / Install and Run
 This program has the following dependencies:
 
-* **ipaddress** - IP address validation
-* **pyfiglet** - Banner printing
-* **colorama** - Coloured output
-* **netifaces** - Displaying/using available IP addresses
-* **pyperclip** - Copying reverse shell code to the clipboard
+* [ipaddress](https://pypi.org/project/ipaddress/) - IP address validation
+* [pyfiglet](https://pypi.org/project/pyfiglet/) - Banner printing
+* [colorama](https://pypi.org/project/colorama/) - Coloured output
+* [netifaces](https://pypi.org/project/netifaces/) - Displaying/using available IP addresses
+* [pyperclip](https://pypi.org/project/pyperclip/) - Copying reverse shell code to the clipboard
 
 To set this up, use the following:
 
-....
+```
+python3 setup.py install
+```
+
+The script can be ran using the following on the command-line:
+
+```
+python3 QuickShells.py
+```
 
 ##
 This project is licensed under the GPLv3 License - see the [LICENSE](LICENSE) file for details
