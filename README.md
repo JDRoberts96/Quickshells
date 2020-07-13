@@ -38,4 +38,4 @@ To set this up, use the following:
 ....
 
 ##
-This project is licensed under the GPLv3 License - see the LICENSE file for details
+This project is licensed under the GPLv3 License - see the [LICENSE](LICENSE) file for details
