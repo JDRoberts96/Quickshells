@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # coding=latin-1
 
-import ipaddress, pyfiglet
+import ipaddress
+import pyfiglet
 import os
 from string import Template
 from time import sleep
@@ -20,9 +21,12 @@ def banner():
     os.system('cls' if os.name == 'nt' else 'clear')
     ascii_banner = pyfiglet.figlet_format("Quick  Shells")
     print(Style.BRIGHT + Fore.BLUE + ascii_banner + Style.RESET_ALL)
-    print(blue.safe_substitute(text="[+] Generate custom reverse shell code quickly!"))
+    print(blue.safe_substitute(
+        text="[+] Generate custom reverse shell code quickly!"))
 
 # Class for network information (e.g. IP, Port) and validation of such
+
+
 class NetInfo:
     def __init__(self, ip, port):
         self.ip = ip
@@ -39,7 +43,8 @@ class NetInfo:
             ipaddress.ip_address(ip)
             return True
         except ValueError:
-            print("\n[ERROR] Oops! The IP you entered [ {} ] is not valid, try again... \n".format(ip))
+            print(
+                "\n[ERROR] Oops! The IP you entered [ {} ] is not valid, try again... \n".format(ip))
             return False
 
     def validatePort(self, port) -> bool:
@@ -48,7 +53,7 @@ class NetInfo:
                 return True
             else:
                 print("\n[ERROR] Oops! The PORT you entered [ {} ] is either < 1 or > 65535! "
-                        "Try again... \n".format(port))
+                      "Try again... \n".format(port))
                 return False
         except ValueError:
             print("\n[ERROR] Oops! The PORT you entered [ {} ]  contains string characters! "
@@ -65,8 +70,9 @@ def get_ips():
         try:
             curr_ip = ifaddresses(iface)[AF_INET][0]['addr']
             if curr_ip != '127.0.0.1':
-                print(yellow.safe_substitute(text="{} : {}".format(iface, curr_ip)))
-                if iface == 'en0': # change to tun0
+                print(yellow.safe_substitute(
+                    text="{} : {}".format(iface, curr_ip)))
+                if iface == 'tun0':  # change to tun0
                     return curr_ip
         except KeyError as e:
             pass
@@ -119,22 +125,24 @@ def generate_code(usr_choice, ip, port):
     }
 
     print(blue.safe_substitute(text="\nCopied the code below to the clipboard: "))
-    print(Fore.YELLOW + shell_dict.get(usr_choice))
+    print(Style.BRIGHT + Fore.YELLOW + shell_dict.get(usr_choice) + Style.RESET_ALL)
 
     if usr_choice == 1:
-        print(red.safe_substitute(text="\nBASH TIP: Don't forget to try adding 'bash -c' on non-default bash shells"))
+        print(red.safe_substitute(
+            text="\nBASH TIP: Don't forget to try adding 'bash -c' on non-default bash shells"))
     elif usr_choice == 7 or usr_choice == 8:
-        print(red.safe_substitute(text="\nNETCAT TIP: Don't forget to try other versions [ Netcat / Ncat ]"))
+        print(red.safe_substitute(
+            text="\nNETCAT TIP: Don't forget to try other versions [ Netcat / Ncat ]"))
 
     copy(shell_dict.get(usr_choice))
 
 
 def use_netcat(net_info):
     if os.name != 'nt':
-        print(yellow.safe_substitute(text="Setting up listener on port {}...".format(net_info.getPort())))
-        os.system('clear')
+        print(yellow.safe_substitute(
+            text="Setting up listener on port {}...".format(net_info.getPort())))
         sleep(0.4)
-        os.system('$(which ncat || nc) -lvnp ' + net_info.getPort())
+        os.system('nc -lvnp' + net_info.getPort())
     else:
         print(red.safe_substitute(text="Exiting..."))
 
@@ -142,36 +150,46 @@ def use_netcat(net_info):
 def menu():
     global choice
     print(blue.safe_substitute(text="[+] Reverse Shell Options: "))
-    print(yellow.safe_substitute(text="[1]  - Bash \t     [2]  - Perl  \t     [3] - Python"))
-    print(yellow.safe_substitute(text="[4]  - Python3 \t     [5]  - PHP  \t     [6] - Ruby   "))
-    print(yellow.safe_substitute(text="[7]  - Netcat (-e)   [8]  - Netcat (mkfifo)  [9] - Java  "))
-    print(yellow.safe_substitute(text="[10] - xterm  \t     [11] - Telnet \t     [12] - GoLang"))
-    print(yellow.safe_substitute(text="[13] - Socat \t     [14] - Awk \t     [15] - PowerShell 1"))
-    print(yellow.safe_substitute(text="[16] - Powershell 2  [17] - C\t") + red.safe_substitute(text="\t     [^C]  - Exit"))
+    print(yellow.safe_substitute(
+        text="[1]  - Bash \t     [2]  - Perl  \t     [3] - Python"))
+    print(yellow.safe_substitute(
+        text="[4]  - Python3 \t     [5]  - PHP  \t     [6] - Ruby   "))
+    print(yellow.safe_substitute(
+        text="[7]  - Netcat (-e)   [8]  - Netcat (mkfifo)  [9] - Java  "))
+    print(yellow.safe_substitute(
+        text="[10] - xterm  \t     [11] - Telnet \t     [12] - GoLang"))
+    print(yellow.safe_substitute(
+        text="[13] - Socat \t     [14] - Awk \t     [15] - PowerShell 1"))
+    print(yellow.safe_substitute(
+        text="[16] - Powershell 2  [17] - C\t") + red.safe_substitute(text="\t     [^C]  - Exit"))
 
     ip = ""
     tmp = get_ips()
 
     if tmp != 'None':
-        vpn_ip = str(input(blue.safe_substitute(text="\n[+] Use tun0 IP? [ Y / N ]: "))).lower()
+        vpn_ip = str(input(blue.safe_substitute(
+            text="\n[+] Use tun0 IP? [ Y / N ]: "))).lower()
         if vpn_ip == 'y':
             print(blue.safe_substitute(text="[+] IP Set to: {}".format(tmp)))
             ip = tmp
         else:
-            ip = str(input("\n" + blue.safe_substitute(text="[+] Enter YOUR IP: ")))
+            ip = str(
+                input("\n" + blue.safe_substitute(text="[+] Enter YOUR IP: ")))
 
     port = str(input(blue.safe_substitute(text="[+] Enter YOUR PORT: ")))
 
     loop = True
     while loop:
         try:
-            choice = int(input(blue.safe_substitute(text="[+] Enter YOUR CHOICE: ")))
+            choice = int(input(blue.safe_substitute(
+                text="[+] Enter YOUR CHOICE: ")))
             if choice in range(1, 19):
                 loop = False
             else:
                 print("Please enter integers between [1] --> [17]")
         except ValueError:
-            print("Invalid value [ {} ] entered. Please enter integers between [1] --> [17]".format(choice))
+            print(
+                "Invalid value [ {} ] entered. Please enter integers between [1] --> [17]".format(choice))
 
     net_info = NetInfo(ip, port)
     check_ip = net_info.validateIP(net_info.getIP())
@@ -182,7 +200,8 @@ def menu():
     else:
         pass
 
-    nc = str(input("\n" + blue.safe_substitute(text="[+] Setup netcat listener? [ Y / N ]: "))).lower()
+    nc = str(input(
+        "\n" + blue.safe_substitute(text="[+] Setup netcat listener? [ Y / N ]: "))).lower()
 
     if nc == 'y':
         use_netcat(net_info)
@@ -198,7 +217,8 @@ if __name__ == "__main__":
         menu()
         flag = True
         while flag:
-            redo = input(blue.safe_substitute(text="\n[+] Generate another? [ Y / N ]: ")).lower()
+            redo = input(blue.safe_substitute(
+                text="\n[+] Generate another? [ Y / N ]: ")).lower()
             if redo == 'y':
                 menu()
                 pass
