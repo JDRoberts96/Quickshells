@@ -24,9 +24,8 @@ def banner():
     print(blue.safe_substitute(
         text="[+] Generate custom reverse shell code quickly!"))
 
+    
 # Class for network information (e.g. IP, Port) and validation of such
-
-
 class NetInfo:
     def __init__(self, ip, port):
         self.ip = ip
@@ -43,8 +42,7 @@ class NetInfo:
             ipaddress.ip_address(ip)
             return True
         except ValueError:
-            print(
-                "\n[ERROR] Oops! The IP you entered [ {} ] is not valid, try again... \n".format(ip))
+            print(blue.safe_substitute(text="\n[ERROR] Oops! The IP you entered [ {} ] is not valid, try again... \n".format(ip)))
             return False
 
     def validatePort(self, port) -> bool:
@@ -52,12 +50,10 @@ class NetInfo:
             if int(port) in range(1, 65535) and port.isdecimal():
                 return True
             else:
-                print("\n[ERROR] Oops! The PORT you entered [ {} ] is either < 1 or > 65535! "
-                      "Try again... \n".format(port))
+                print(blue.safe_substitute(text="\n[ERROR] Oops! The PORT you entered [ {} ] is either < 1 or > 65535! Try again... \n".format(port)))
                 return False
         except ValueError:
-            print("\n[ERROR] Oops! The PORT you entered [ {} ]  contains string characters! "
-                  "Try again... \n".format(port))
+            print(blue.safe_substitute(text="\n[ERROR] Oops! The PORT you entered [ {} ]  contains string characters! Try again... \n".format(port)))
             return False
 
 
@@ -72,7 +68,7 @@ def get_ips():
             if curr_ip != '127.0.0.1':
                 print(yellow.safe_substitute(
                     text="{} : {}".format(iface, curr_ip)))
-                if iface == 'tun0':  # change to tun0
+                if iface == 'tun0':  
                     return curr_ip
         except KeyError as e:
             pass
