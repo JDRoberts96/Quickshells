@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
-import ipaddress, pyfiglet
-import os
+import ipaddress, pyfiglet, os
 from string import Template
 from time import sleep
 from colorama import Fore, Style
@@ -21,6 +20,7 @@ def banner():
     print(ascii_banner)
     print("[+] Generate custom reverse shell code quickly!\n")
 
+    
 # Class for network information (e.g. IP, Port) and validation of such
 class NetInfo:
     def __init__(self, ip, port):
@@ -54,6 +54,7 @@ class NetInfo:
                   "Try again... \n".format(port))
             return False
 
+        
 # Displays available IPs based off network interfaces
 # Auto-assigns tun0 as IP if selected by the user, useful for (e.g. HackTheBox, TryHackMe)
 def get_ips() -> list:
@@ -133,6 +134,7 @@ def generate_code(usr_choice, ip, port):
     copy(shell_dict.get(usr_choice))
 
 
+# Opens a netcat listener on the specified port is chosen so by the user
 def use_netcat(net_info):
     if os.name != 'nt':
         print(yellow.safe_substitute(text="Setting up listener on port {}...".format(net_info.getPort())))
@@ -142,6 +144,7 @@ def use_netcat(net_info):
         print(red.safe_substitute(text="Exiting..."))
 
 
+# Main Menu - formatting displayed nicely in terminal, broken in PyCharm 
 def menu():
     global choice
     print(blue.safe_substitute(text="Reverse Shell Options: "))
