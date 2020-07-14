@@ -18,8 +18,8 @@ The current implementation is capable of generating reverse shell code for the f
 | Python  | Netcat (-e)     | Telnet | Powershell x2
 | Python3 | Netcat (mkfifo) | GoLang | C
 
-## Demonstration
-
+## Demonstration - netcat (-e)
+Demonstration below was tested on Kali Linux 2020.2 within VirtualBox 6.1
 
 ## Download
 ```
