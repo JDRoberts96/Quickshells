@@ -1,5 +1,9 @@
 # Quickshells
-A simple command-line Python3 program to generate a variety of reverse shell codes with custom IP address and port numbers, copy it to the clipboard and open a netcat listener.
+A simple command-line Python3 program to generate a variety of reverse shell codes with custom IP address and port numbers, copy it to the clipboard and open a netcat listener. Primarily works for Linux distributions with the 'nc' version of netcat installed at the moment.
+
+Future improvements include:
+* Selecting shell to spawn - i.e. /bin/bash, /bin/sh etc.
+* Supporting Ncat installations
 
 ## Supported Reverse Shell Codes
 The reverse shell code has been taken from the following sources:
