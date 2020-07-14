@@ -22,10 +22,14 @@ The current implementation is capable of generating reverse shell code for the f
 | Python  | Netcat (-e)     | Telnet | Powershell x2
 | Python3 | Netcat (mkfifo) | GoLang | C
 
-## Demonstration - netcat (-e)
+## Demonstration - netcat (-e) and perl
 Demonstration below was tested on Kali Linux 2020.2 within VirtualBox 6.1
 
-![Demonstration 1](/../../Quickshells_Demo.gif)
+[![Watch the video](https://img.youtube.com/vi/2JltaulExbs/maxresdefault.jpg)](https://youtu.be/2JltaulExbs)  
+
+
+[![Watch the video](https://img.youtube.com/vi/uIjs582PK5A/maxresdefault.jpg)](https://youtu.be/uIjs582PK5A)
+
 
 ## Download
 ```
