@@ -18,6 +18,8 @@ The current implementation is capable of generating reverse shell code for the f
 | Python  | Netcat (-e)     | Telnet | Powershell x2
 | Python3 | Netcat (mkfifo) | GoLang | C
 
+## Demonstration
+
 
 ## Download
 ```
@@ -42,7 +44,7 @@ python3 setup.py install
 The script can be ran using the following on the command-line:
 
 ```
-python3 QuickShells.py
+python3 Quickshells.py
 ```
 
 ##
