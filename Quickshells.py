@@ -177,7 +177,7 @@ def menu():
             else:
                 ip = str(input("\n" + blue.safe_substitute(text="[+] Enter YOUR IP: ")))
         except TypeError:
-            print(red.safe_substitute(text="[ERROR] tun0 interface not found, check your connection or use a different IP"))
+            print(red.safe_substitute(text="[ERROR] tun0 interface not found, check your connection or use a different IP\n"))
             exit(0)
 
     port = str(input(blue.safe_substitute(text="[+] Enter YOUR PORT: ")))
