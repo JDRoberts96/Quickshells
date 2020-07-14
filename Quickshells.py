@@ -221,6 +221,7 @@ if __name__ == "__main__":
         while flag:
             redo = input(blue.safe_substitute(text="\n[+] Generate another? [ Y / N ]: ")).lower()
             if redo == 'y':
+                os.system('clear')
                 menu()
                 pass
             elif redo == 'n':
