@@ -23,13 +23,15 @@ The current implementation is capable of generating reverse shell code for the f
 | Python3 | Netcat (mkfifo) | GoLang | C
 
 ## Demonstration
+Clicking the images below will take you to an unlisted video link. 
+
 The demonstration below was tested on Kali Linux 2020.2 within VirtualBox 6.1. The first demonstration shows option 7 (netcat -e) and utilises the auto-assign functionality of the tun0 ip address.
 
-[![Demo 1](https://img.youtube.com/vi/2JltaulExbs/hqdefault.jpg)](https://youtu.be/2JltaulExbs)  
+[![Demo 1](https://img.youtube.com/vi/2JltaulExbs/maxresdefault.jpg)](https://youtu.be/2JltaulExbs)  
 
 The second demonstration continues on from the above and shows option 2 (perl), the manual IP input functionality and how the script continues after exiting ( ^C ) the previously started netcat listener.   
 
-[![Demo 2](https://img.youtube.com/vi/uIjs582PK5A/hqdefault.jpg)](https://youtu.be/uIjs582PK5A) 
+[![Demo 2](https://img.youtube.com/vi/uIjs582PK5A/maxresdefault.jpg)](https://youtu.be/uIjs582PK5A) 
 
 
 ## Download
@@ -58,5 +60,5 @@ The script can be ran using the following on the command-line:
 python3 Quickshells.py
 ```
 
-##
+## LICENSE
 This project is licensed under the GPLv3 License - see the [LICENSE](LICENSE) file for details
