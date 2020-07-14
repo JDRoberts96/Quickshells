@@ -22,13 +22,17 @@ The current implementation is capable of generating reverse shell code for the f
 | Python  | Netcat (-e)     | Telnet | Powershell x2
 | Python3 | Netcat (mkfifo) | GoLang | C
 
-## Demonstration - netcat (-e) and perl
-Demonstration below was tested on Kali Linux 2020.2 within VirtualBox 6.1
+## Demonstration
+The demonstration below was tested on Kali Linux 2020.2 within VirtualBox 6.1. The first demonstration shows option 7 (netcat -e) and utilises the auto-assign functionality of the tun0 ip address.
 
-[![Watch the video](https://img.youtube.com/vi/2JltaulExbs/maxresdefault.jpg)](https://youtu.be/2JltaulExbs)  
+[![Demo 1](https://img.youtube.com/vi/2JltaulExbs/maxresdefault.jpg)](https://youtu.be/2JltaulExbs)  
 
 
-[![Watch the video](https://img.youtube.com/vi/uIjs582PK5A/maxresdefault.jpg)](https://youtu.be/uIjs582PK5A)
+
+The second demonstration continues on from the above and shows option 2 (perl), the manual IP input functionality and how the script continues after exiting ( ^C ) the previously started netcat listener.   
+
+
+[![Demo 2](https://img.youtube.com/vi/uIjs582PK5A/maxresdefault.jpg)](https://youtu.be/uIjs582PK5A)
 
 
 ## Download
